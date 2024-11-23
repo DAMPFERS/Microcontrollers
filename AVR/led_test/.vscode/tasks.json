@@ -1,0 +1,21 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build The App and Burn",
+            "type": "shell",
+            "command": "C:\\PROGRAMS\\Microcontrollers\\make.exe",
+            "args": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "C:\\PROGRAMS\\Microcontrollers\\AVR\\led_test"
+            }
+        }
+    ]
+}

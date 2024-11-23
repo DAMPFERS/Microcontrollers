@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "UART_and_Hx711",
+			"path": "."
+		}
+	],
+	"settings": {}
+}

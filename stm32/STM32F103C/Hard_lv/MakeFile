@@ -1,0 +1,30 @@
+# Имя основного приложения
+TARGET = main
+
+# Компилятор и утилиты
+CC = arm-none-eabi-gcc
+OBJCOPY = arm-none-eabi-objcopy
+GDB = arm-none-eabi-gdb
+
+# Опции компилятора и линковщика
+CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g -O2 -I.
+LDFLAGS = -TSTM32F103C8T6.ld -nostartfiles -Wl,--gc-sections
+
+# Источники и заголовки
+SRC = main.c
+INCLUDE = -I.
+
+# Цели
+all: $(TARGET).hex
+
+$(TARGET).elf: $(SRC)
+    $(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LDFLAGS) -o $@
+
+$(TARGET).hex: $(TARGET).elf
+    $(OBJCOPY) -O ihex $< $@
+
+flash: $(TARGET).hex
+    st-flash write $(TARGET).hex 0x8000000
+
+clean:
+    rm -f $(TARGET).elf $(TARGET).hex

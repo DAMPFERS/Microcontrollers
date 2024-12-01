@@ -77,30 +77,34 @@ void suartTxStr(const char* str){
 unsigned char suartRx(void){
     uint16_t count = 0;
     unsigned char data = 0;
+    sei();
     while (count < 0xffff)
     {
         if(SURAT_PORT_RX & (1 << SURAT_PIN_RX))
             count++; 
         else{
             suartDelay(3);
-            for(count = 0; count < 8; count++){
+            for(unsigned char i = 0; i < 8; i++){
                 if (SURAT_PORT_RX & (1 << SURAT_PIN_RX))
-                    data |= 1 << count;
+                    data |= 1 << i;
                 suartDelay(2);
             }
             suartDelay(1);
-            if (SURAT_PORT_RX & (1 << SURAT_PIN_RX) == 0){
+            if ((SURAT_PORT_RX & (1 << SURAT_PIN_RX)) == 0){
                 SUART_WR_1_FLAG_RX();
-                return 0;
+                cli();
+                return '>';
             }
 
             else{
                 SUART_WR_0_FLAG_RX();
+                cli();
                 return data;
             }
         }      
     }
     SUART_WR_1_FLAG_TIMOUT();
+    cli();
     return 0;  
 }
 

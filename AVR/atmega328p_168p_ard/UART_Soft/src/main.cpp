@@ -6,6 +6,8 @@ int main(void){
   suartInit(9600);
   _delay_ms(50);
   while (1){
+    // suartTx('r');
+    // _delay_ms(1000);
     unsigned char res = suartRx();
     if (res != 0) 
       suartTx(res + 1);

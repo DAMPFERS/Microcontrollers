@@ -2,14 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Cortex Debug",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "stlink",
+      "cwd": "${workspaceFolder}",
+      "executable": "${workspaceFolder}/build/your_project.elf",
+      "runToMain": true,
+      "device": "STM32F103C8",
+      "configFiles": [
+        "interface/stlink.cfg",
+        "target/stm32f1x.cfg"
+      ]
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/PROGRAMS/Microcontrollers/stm32/STM32F103C",
-      "program": "c:/PROGRAMS/Microcontrollers/stm32/STM32F103C/build/Debug/outDebug",
+      "cwd": "c:/PROGRAMS/Microcontrollers/stm32/STM32F103C/Hard_lv",
+      "program": "c:/PROGRAMS/Microcontrollers/stm32/STM32F103C/Hard_lv/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

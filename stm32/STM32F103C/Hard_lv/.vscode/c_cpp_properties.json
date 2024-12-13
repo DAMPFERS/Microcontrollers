@@ -19,7 +19,9 @@
         "${workspaceFolder}/**",
         "C:\\Users\\vladr\\STM32Cube\\Repository\\STM32Cube_FW_F1_V1.8.5\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include", // Заголовочные файлы устройства
         "C:\\Users\\vladr\\STM32Cube\\Repository\\STM32Cube_FW_F1_V1.8.5\\Drivers\\CMSIS\\Include", // Основные заголовочные файлы CMSIS
-        "C:\\Users\\vladr\\STM32Cube\\Repository\\STM32Cube_FW_F1_V1.8.5\\Drivers\\STM32F1xx_HAL_Driver\\Inc" // Заголовки HAL, если понадобится
+        "C:\\Users\\vladr\\STM32Cube\\Repository\\STM32Cube_FW_F1_V1.8.5\\Drivers\\STM32F1xx_HAL_Driver\\Inc", // Заголовки HAL, если понадобится
+        "C:\\Users\\vladr\\STM32Cube\\Repository\\STM32Cube_FW_F1_V1.8.5\\Projects\\STM32VL-Discovery\\Templates\\Inc",
+        "C:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/STM32F1xx_HAL_Driver/Inc"
       ],
       "compilerPath": "C:\\ST\\STM32CubeCLT_1.16.0\\GNU-tools-for-STM32\\bin\\arm-none-eabi-gcc.exe",
       "cStandard": "c11",

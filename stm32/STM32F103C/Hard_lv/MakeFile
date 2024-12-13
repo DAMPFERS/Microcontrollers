@@ -6,25 +6,36 @@ CC = arm-none-eabi-gcc
 OBJCOPY = arm-none-eabi-objcopy
 GDB = arm-none-eabi-gdb
 
+
 # Опции компилятора и линковщика
-CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g -O2 -I.
+CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g -O2 -v -I. \
+         -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/CMSIS/Device/ST/STM32F1xx/Include \
+         -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/CMSIS/Include \
+         -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/STM32F1xx_HAL_Driver/Inc \
+		 -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Projects/STM32VL-Discovery/Templates/Inc \
+		 -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/STM32F1xx_HAL_Driver/Inc\
+		 -IC:/Users/vladr/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.5/Drivers/STM32F1xx_HAL_Driver/Inc\
+         -DSTM32F103x6
 LDFLAGS = -TSTM32F103C8T6.ld -nostartfiles -Wl,--gc-sections
 
+
 # Источники и заголовки
-SRC = main.c
+SRC = main.c startup_stm32f103x6.s
 INCLUDE = -I.
 
 # Цели
 all: $(TARGET).hex
 
 $(TARGET).elf: $(SRC)
-    $(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LDFLAGS) -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) $(SRC) $(LDFLAGS) -o $@
 
 $(TARGET).hex: $(TARGET).elf
-    $(OBJCOPY) -O ihex $< $@
+	$(OBJCOPY) -O ihex $< $@
 
 flash: $(TARGET).hex
-    st-flash write $(TARGET).hex 0x8000000
+	st-flash write $(TARGET).hex 0x8000000
 
 clean:
-    rm -f $(TARGET).elf $(TARGET).hex
+	rm -f $(TARGET).elf $(TARGET).hex
+
+.PHONY: all clean flash

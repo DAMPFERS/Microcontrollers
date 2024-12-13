@@ -7,7 +7,7 @@
       "request": "launch",
       "servertype": "stlink",
       "cwd": "${workspaceFolder}",
-      "executable": "${workspaceFolder}/build/your_project.elf",
+      "executable": "${workspaceFolder}/build/main.elf",
       "runToMain": true,
       "device": "STM32F103C8",
       "configFiles": [

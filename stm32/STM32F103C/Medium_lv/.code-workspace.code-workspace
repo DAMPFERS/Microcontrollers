@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"name": "🔍Decompiler!",
+			"uri": "decompileFs:/"
+		},
+		{
+			"path": "../../../../AUDIO"
+		},
+		{
+			"name": "PIO_test",
+			"path": "../PIO_test"
+		},
+		{
+			"name": "PIO_test_CMIS",
+			"path": "../PIO_test_CMIS"
+		}
+	],
+	"settings": {
+		"stm32-for-vscode.openOCDPath": false
+	}
+}
